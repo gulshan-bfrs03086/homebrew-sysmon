@@ -1,11 +1,11 @@
 cask "sysmon-app" do
   arch arm: "aarch64", intel: "x64"
 
-  version "0.2.2"
-  sha256 arm:   "2bc83c7b8d96303191cdcdbbc71a4e79c69f7b3f7d01dfc30f18d62e3b7a15f1",
-         intel: "9b232a281717386c818f741ebd7488153286d335da72871219f79e52b85dd05e"
+  version "0.2.3"
+  sha256 arm:   "8b261ebd61911b71f2ef7d43ddcd24dc1dd6751b779296b51f67e70d1bc17f4d",
+         intel: "27db0da99c169c0e13f2dbb1f31648801e5b525791a8009625b9727f998023ee"
 
-  url "https://github.com/gulshan-bfrs03086/sysmon/releases/download/v0.2.2/Sysmon_#{version}_#{arch}.dmg"
+  url "https://github.com/gulshan-bfrs03086/sysmon/releases/download/v0.2.3/Sysmon_#{version}_#{arch}.dmg"
   name "Sysmon"
   desc "Real-time system monitor with charts, a process table and kill protection"
   homepage "https://github.com/gulshan-bfrs03086/sysmon"

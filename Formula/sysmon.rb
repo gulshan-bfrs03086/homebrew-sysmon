@@ -1,28 +1,16 @@
 class Sysmon < Formula
   desc "Real-time system monitor for the terminal, in the spirit of htop"
   homepage "https://github.com/gulshan-bfrs03086/sysmon"
+  url "https://github.com/gulshan-bfrs03086/sysmon/archive/refs/tags/v0.2.3.tar.gz"
+  sha256 "d0178fec375846275a31679b2132a2f8be4167950d48c28977fb9a2e0c2305e4"
   license "MIT"
 
-  on_macos do
-    on_arm do
-      url "https://github.com/gulshan-bfrs03086/sysmon/releases/download/v0.2.2/sysmon-tui-v0.2.2-aarch64-apple-darwin.tar.gz"
-      sha256 "7c6b7317eb0236cc748ed349290efac06b74290583d4d3d2788823f7f6ba5b40"
-    end
-    on_intel do
-      url "https://github.com/gulshan-bfrs03086/sysmon/releases/download/v0.2.2/sysmon-tui-v0.2.2-x86_64-apple-darwin.tar.gz"
-      sha256 "0dd8c5278774f58c7c1a9b93bce8308a87931d5a6e507be97982fa646c9654bf"
-    end
-  end
-
-  on_linux do
-    on_intel do
-      url "https://github.com/gulshan-bfrs03086/sysmon/releases/download/v0.2.2/sysmon-tui-v0.2.2-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "242cc0d61c6f6abdb3662d056a67df0756c6afeabe6a8d88c880f17e8aa2f9d0"
-    end
-  end
+  depends_on "rust" => :build
 
   def install
-    bin.install "sysmon-tui" => "sysmon"
+    system "cargo", "install", *std_cargo_args(path: "crates/sysmon-tui")
+    # cargo install names the binary after the crate; users run it as "sysmon".
+    bin.install_symlink bin/"sysmon-tui" => "sysmon"
   end
 
   test do
