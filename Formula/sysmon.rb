@@ -1,7 +1,6 @@
 class Sysmon < Formula
   desc "Real-time system monitor for the terminal, in the spirit of htop"
   homepage "https://github.com/gulshan-bfrs03086/sysmon"
-  version "0.2.1"
   license "MIT"
 
   on_macos do

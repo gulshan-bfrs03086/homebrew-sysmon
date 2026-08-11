@@ -10,7 +10,7 @@ cask "sysmon-app" do
   desc "Real-time system monitor with charts, a process table and kill protection"
   homepage "https://github.com/gulshan-bfrs03086/sysmon"
 
-  depends_on macos: ">= :big_sur"
+  depends_on macos: :big_sur
 
   app "Sysmon.app"
 
